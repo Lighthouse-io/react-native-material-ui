@@ -12,12 +12,14 @@ import {
 import { ViewPropTypes } from '../utils';
 import withTheme from '../styles/withTheme';
 
+const autoCapitalizeValues = ['none', 'sentences', 'words', 'characters'];
+
 const propTypes = {
   isSearchActive: PropTypes.bool.isRequired,
   searchValue: PropTypes.string.isRequired,
   searchable: PropTypes.shape({
     autoFocus: PropTypes.bool,
-    autoCapitalize: TextInput.propTypes.autoCapitalize, // eslint-disable-line
+    autoCapitalize: PropTypes.oneOf(autoCapitalizeValues), // eslint-disable-line
     autoCorrect: PropTypes.bool,
     onChangeText: PropTypes.func,
     onSubmitEditing: PropTypes.func,
